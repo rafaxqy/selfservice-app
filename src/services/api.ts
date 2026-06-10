@@ -46,8 +46,9 @@ export async function fetchAllMenu(): Promise<ApiMenuItem[]> {
   const uuid = getEstablishmentUuid();
   let allItems: ApiMenuItem[] = [];
   let page = 1;
+  const MAX_PAGES = 20;
 
-  while (true) {
+  while (page <= MAX_PAGES) {
     try {
       const res = await fetch(
         `${API_BASE}/establishments/${uuid}/menu?page=${page}&size=50`,
@@ -55,7 +56,7 @@ export async function fetchAllMenu(): Promise<ApiMenuItem[]> {
       );
       if (!res.ok) break;
       const data: ApiMenuItem[] = await res.json();
-      if (!data.length) break;
+      if (!Array.isArray(data) || data.length === 0) break;
       allItems = [...allItems, ...data];
       if (data.length < 50) break;
       page++;
