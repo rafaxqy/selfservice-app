@@ -1,19 +1,18 @@
 import { motion } from "framer-motion";
 import { ChevronRight, Clock, MapPin, UtensilsCrossed } from "lucide-react";
 import { Link } from "react-router-dom";
-import { heroImage, logoImage } from "@/assets/images";
+import heroImage from "@/assets/hero-sushi.jpg";
+import logoImage from "@/assets/logo-japa-sushi.png";
 import { Footer } from "@/components/Footer";
 
 const Home = () => {
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero Section */}
       <section className="relative h-screen overflow-hidden">
         <img
           src={heroImage}
           alt="Japa Sushi"
           loading="eager"
-          fetchPriority="high"
           decoding="async"
           className="absolute inset-0 h-full w-full object-cover object-center"
           style={{ objectPosition: '50% 40%' }}
@@ -65,7 +64,6 @@ const Home = () => {
           </motion.div>
         </div>
 
-        {/* Scroll indicator */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -82,42 +80,26 @@ const Home = () => {
         </motion.div>
       </section>
 
-      {/* Info cards */}
       <section className="mx-auto max-w-4xl px-4 py-16">
         <div className="grid gap-6 sm:grid-cols-3">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="rounded-2xl border border-border bg-card p-6 text-center"
-          >
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}
+            className="rounded-2xl border border-border bg-card p-6 text-center">
             <Clock className="mx-auto h-8 w-8 text-primary mb-3" />
             <h3 className="font-semibold text-foreground">Horário</h3>
             <p className="mt-1 text-sm text-muted-foreground">Terça a Domingo</p>
             <p className="text-sm text-muted-foreground">19:00 — 23:30</p>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="rounded-2xl border border-border bg-card p-6 text-center"
-          >
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }}
+            className="rounded-2xl border border-border bg-card p-6 text-center">
             <MapPin className="mx-auto h-8 w-8 text-primary mb-3" />
             <h3 className="font-semibold text-foreground">Localização</h3>
             <p className="mt-1 text-sm text-muted-foreground">Av. Antônio Carlos, R. São Geraldo, 51A</p>
             <p className="text-sm text-muted-foreground">Salinas — MG</p>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="rounded-2xl border border-border bg-card p-6 text-center"
-          >
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }}
+            className="rounded-2xl border border-border bg-card p-6 text-center">
             <UtensilsCrossed className="mx-auto h-8 w-8 text-primary mb-3" />
             <h3 className="font-semibold text-foreground">Auto Atendimento</h3>
             <p className="mt-1 text-sm text-muted-foreground">Peça direto da sua mesa</p>
@@ -126,10 +108,7 @@ const Home = () => {
         </div>
 
         <div className="mt-12 text-center">
-          <Link
-            to="/cardapio"
-            className="inline-flex items-center gap-2 text-primary font-medium hover:underline text-lg"
-          >
+          <Link to="/cardapio" className="inline-flex items-center gap-2 text-primary font-medium hover:underline text-lg">
             Explorar o Cardápio
             <ChevronRight className="h-5 w-5" />
           </Link>
